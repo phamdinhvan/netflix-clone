@@ -1,4 +1,6 @@
-import React from 'react';
+import React from "react";
+import { BellIcon, SearchIcon } from "@heroicons/react/outline";
+import Link from "next/link";
 
 function Header() {
   return (
@@ -18,6 +20,15 @@ function Header() {
           <li className="headerLink">News & Popular</li>
           <li className="headerLink">My List</li>
         </ul>
+      </div>
+
+      <div>
+        <SearchIcon className="hidden h-6 w-6 sm:inline" />
+        <p className="hidden lg:inline">Kids</p>
+        <BellIcon className="h-6 w-6" />
+        <Link href="/account">
+          <img src="" alt="" />
+        </Link>
       </div>
     </header>
   );
