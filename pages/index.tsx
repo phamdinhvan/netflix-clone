@@ -4,6 +4,7 @@ import { Movie } from '../type';
 import request from '../utils/request';
 import Banner from './component/Banner';
 import Header from './component/Header';
+import Row from './component/Row';
 
 interface Props {
   netflixOriginals: Movie[];
@@ -24,9 +25,18 @@ const Home: NextPage<Props> = (props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main>
+      <main className="relative pl-4 pb-24 lg:space-y-24 lg:pl-16">
         <Banner netflixOriginals={props.netflixOriginals} />
-        <section></section>
+        <section className="md:space-y-24">
+          <Row title="Trending Now" movies={props.trendingNow} />
+          <Row title="Top Rated" movies={props.topRated} />
+          <Row title="Action Thrillers" movies={props.actionMovies} />
+          {/* My List */}
+          <Row title="Comedies" movies={props.comedyMovies} />
+          <Row title="Scary Movies" movies={props.horrorMovies} />
+          <Row title="Romance Movies" movies={props.romanceMovies} />
+          <Row title="Documentaries" movies={props.documentaries} />
+        </section>
       </main>
     </div>
   );
