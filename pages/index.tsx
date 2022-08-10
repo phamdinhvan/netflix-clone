@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import useAuth from '../hooks/useAuth';
 import { Movie } from '../type';
 import request from '../utils/request';
 import Banner from './component/Banner';
@@ -18,6 +19,9 @@ interface Props {
 }
 
 const Home: NextPage<Props> = (props) => {
+  const { user, loading } = useAuth();
+  if (loading) return null;
+
   return (
     <div className="relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh]">
       <Head>
